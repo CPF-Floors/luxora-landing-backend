@@ -9,8 +9,7 @@ const userSchema = new Schema<User>(
     phone: { type: String, required: true },
     address: { type: String, required: true },
     message: { type: String },
-    terms: { type: Boolean, required: true },
-    promoCode: { type: String, required: true, unique: true },
+    terms: { type: Boolean, required: true, default: true },
   },
   { timestamps: true }
 );
