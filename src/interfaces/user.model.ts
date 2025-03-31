@@ -1,12 +1,15 @@
-import type { Types } from "mongoose";
+import { Types } from "mongoose";
 
 export interface User {
   _id: Types.ObjectId;
-  firstName: string;
-  lastName: string;
+  name: string;
   email: string;
+  companyName?: string;
   phone: string;
-  membershipType: string;
+  address: string;
+  message?: string;
+  terms: boolean;
+  promoCode: string;
   createdAt: Date;
   updatedAt: Date;
 }

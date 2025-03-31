@@ -1,13 +1,16 @@
-import type { User } from "../interfaces/user.model";
+import { User } from "../interfaces/user.model";
 import { Schema, models, model } from "mongoose";
 
 const userSchema = new Schema<User>(
   {
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
+    name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
+    companyName: { type: String },
     phone: { type: String, required: true },
-    membershipType: { type: String, required: true },
+    address: { type: String, required: true },
+    message: { type: String },
+    terms: { type: Boolean, required: true },
+    promoCode: { type: String, required: true, unique: true },
   },
   { timestamps: true }
 );
