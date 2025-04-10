@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 import type { User, UserDTO } from "../interfaces/user.model";
 import UserModel from "../models/user.model";
-//import EmailController from "./emails.controller";
+import EmailController from "./emails.controller";
 
 class UserController {
   async getUserList(_req: Request, res: Response) {
@@ -46,11 +46,11 @@ class UserController {
         return res.status(500).json({ error: "Internal Server Error" });
       }
 
-      // const { error } = await EmailController.sendEmail({ email });
+      const { error } = await EmailController.sendEmail({ email });
 
-      // if (error) {
-      //   console.log("Error to send email after create user", error);
-      // }
+      if (error) {
+        console.log("Error to send email after create user", error);
+      }
 
       return res.status(201).json(userSaved);
     } catch (error) {
